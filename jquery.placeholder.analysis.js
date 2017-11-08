@@ -101,7 +101,7 @@
             //运行$('input').val();$('input').prop('value')是会调用此方法。返回此方法的结果。
             //下面的set一样。
             'get': function(element) {
-                //element是个啥
+                
                 var $element = $(element);
                 //针对type=password的特殊处理。如果是为password生成的text。实际要拿它对应的password的值。
                 var $passwordInput = $element.data('placeholder-password');
@@ -163,6 +163,7 @@
                     element.value = value;
                 }
                 // `set` can not return `undefined`; see http://jsapi.info/jquery/1.7.1/val#L2363
+                // 如果返回了undefined。jQuery源码内部就会就会放弃上面的赋值操作。
                 return $element;
             }
         };
